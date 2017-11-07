@@ -2,18 +2,19 @@
     <div id="app">
         这是test
         <div class="btn" @click="go">
-            hello
+            TEST
         </div>
         <router-view/>
     </div>
 </template>
 
 <script>
+	import "assets/css/common.scss"
 	export default {
 		name: 'app',
         methods:{
 			go(){
-				this.$router.push('/hello')
+				this.$router.push('/test')
             }
         }
 	}

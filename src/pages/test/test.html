@@ -2,10 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>MultiPage</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 </head>
 <body>
     <div id="app">
     </div>
 </body>
 </html>
+<script>
+	(function (doc, win) {
+		var htmlFont = function () {
+			var docEl = doc.documentElement, l = docEl.clientWidth, f
+			f = l / 18
+			l > 720 ? docEl.style.fontSize = 40 + "px" : docEl.style.fontSize = f + "px"
+		}
+		htmlFont()
+		win.addEventListener("resize", htmlFont, false)
+	})(document, window)
+</script>

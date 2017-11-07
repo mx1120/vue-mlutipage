@@ -4,11 +4,17 @@
 import FastClick  from  'fastclick'
 import Axios from 'axios'
 import Vue from 'vue'
+// require('./flexible.js')
 
+//解决手机点击有有延迟
 FastClick.attach(document.body)
 
+//使用axios
 Vue.prototype.$axios = Axios
 
+//对所有异步请求进行拦截操作，添加或者删除相应参数
+
+//请求拦截
 Axios.interceptors.request.use(
 	config => {
 		console.info(config)
@@ -19,6 +25,7 @@ Axios.interceptors.request.use(
 	}
 )
 
+//返回拦截
 Axios.interceptors.response.use(
 	res => {
 		console.info(res)
@@ -28,5 +35,6 @@ Axios.interceptors.response.use(
 		console.info(error)
 	}
 )
+
 
 

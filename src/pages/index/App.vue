@@ -2,18 +2,18 @@
   <div id="app">
     这是index
     <div class="sub" @click="go">
-        hello word
+        INDEX
     </div>
     <router-view/>
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 export default {
   name: 'app',
     methods:{
   	    go() {
-  	    	this.$router.push('/helloword')
+  	    	this.$router.push('/index')
         }
     }
 }
@@ -21,8 +21,8 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss" scoped>
   .sub{
-    width: 100px;
-    height: 100px;
+    width: 100px/$ppr;
+    height: 100px/$ppr;
     border: 1px solid rebeccapurple;
   }
 </style>
