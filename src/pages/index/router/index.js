@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 const index = resolve => {
-	require(['@/components/index'], resolve)
+	require(['components/index'], resolve)
 }
 
 Vue.use(Router)

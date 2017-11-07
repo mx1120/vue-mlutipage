@@ -8,12 +8,12 @@
     </div>
 </template>
 
-<script>
-	import "assets/css/common.scss"
+<script type="text/ecmascript-6">
 	export default {
 		name: 'app',
         methods:{
 			go(){
+				this.$storage.set('pl', 'sb')
 				this.$router.push('/test')
             }
         }
@@ -21,6 +21,7 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
+    @import "assets/css/base";
     .btn{
         width: 100px;
         height: 100px;

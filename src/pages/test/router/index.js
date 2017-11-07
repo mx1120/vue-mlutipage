@@ -4,7 +4,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 const test = resolve => {
-	require(['@/components/test'], resolve)
+	require(['components/test'], resolve)
 }
 
 Vue.use(Router)

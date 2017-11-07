@@ -13,16 +13,17 @@ export default {
   name: 'app',
     methods:{
   	    go() {
+  	    	this.$storage.set('mx', 'aotuman')
   	    	this.$router.push('/index')
         }
     }
 }
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
+<style rel="stylesheet/scss" lang="scss">
   .sub{
-    width: 100px/$ppr;
-    height: 100px/$ppr;
+    width: 100px;
+    height: 100px;
     border: 1px solid rebeccapurple;
   }
 </style>
