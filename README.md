@@ -1,21 +1,25 @@
 # page
+安装项目需要的依赖
+npm install 
 
-> vue more page
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
+运行项目
 npm run dev
 
-# build for production with minification
+项目打包
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+assets => 静态资源文件，主要放公用的JS，CSS文件
+
+dist => npm run build之后打包生成的文件
+
+src => config => vue插件，XHR请求拦截，异界自己封装插件的入口处
+
+src => moudels => 存放不同的模块
+
+src => page => 不同的单页面
+
+store => 全局变量的存储的地方
+
+static => 三方插件，layer，bootStrap等
+
