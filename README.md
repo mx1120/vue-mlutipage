@@ -13,7 +13,7 @@ assets => 静态资源文件，主要放公用的JS，CSS文件
 
 dist => npm run build之后打包生成的文件
 
-src => config => vue插件，XHR请求拦截，异界自己封装插件的入口处
+src => config => vue插件，XHR请求拦截，自己封装插件等入口处
 
 src => moudels => 存放不同的模块
 
