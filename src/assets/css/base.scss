@@ -1,8 +1,5 @@
 @import "reset";
 @import "mixin";
-$device:18;
-$ppr:720px/$device/1rem;
-$pprVal:720/18;
 
 //vue过渡效果
 .router-slid-enter-active, .router-slid-leave-active {

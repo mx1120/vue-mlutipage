@@ -1,18 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
-const index = resolve => {
-	require(['components/index'], resolve)
-}
+import list from './map/list'
 
 Vue.use(Router)
 
+let routes = []
+
+routes = routes.concat(list)
+
 export default new Router({
   mode:"history",
-  routes: [
-    {
-      path: '/index',
-      component: index
-    }
-  ]
+  routes,
 })

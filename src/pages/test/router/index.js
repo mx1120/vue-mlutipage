@@ -3,18 +3,15 @@
  */
 import Vue from 'vue'
 import Router from 'vue-router'
-const test = resolve => {
-	require(['components/test'], resolve)
-}
 
 Vue.use(Router)
 
+let routes = []
+
+routes = routes.concat()
+
+
 export default new Router({
 	mode:"history",
-	routes: [
-		{
-			path:'/test',
-			component:test
-		}
-	]
+	routes: routes
 })

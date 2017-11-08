@@ -16,9 +16,9 @@ FastClick.attach(document.body)
 
 //url传参截取(已query的形式获取参数)
 const search = searchToMap()
-if(location.search && search.token){
-	storage.set('token', search.token)
-}
+
+if(location.search && search.tbkt_token) storage.set('Tbkt-Token', search.tbkt_token)
+
 
 //使用axios异步请求
 Vue.prototype.$axios = Axios
@@ -38,26 +38,24 @@ Promise.prototype.finally = function (cb) {
 //请求拦截
 Axios.interceptors.request.use(
 	config => {
-		console.info('this is base config request')
-		let token = storage.get('token') || ''
-		config.headers['token'] = token
-		config.headers['author'] = 'mx'
+		let token = storage.get('Tbkt-Token') || ''
+		config.headers['Tbkt-Token'] = token
 		return config
 	},
 	error => {
-		console.info(error)
+		return Promise.reject(error)
 	}
 )
 
 //返回拦截
 Axios.interceptors.response.use(
 	res => {
-		console.info('this is base config response')
-		storage.set('token', res.data.token)
+		let _res = res.data
+		if(_res.tbkt_token) storage.set('Tbkt-Token', _res.tbkt_token)
 		return res
 	},
 	error => {
-		console.info(error)
+		return Promise.reject(error)
 	}
 )
 

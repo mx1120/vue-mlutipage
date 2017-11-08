@@ -15,10 +15,4 @@ export default {
 
 <style rel="stylesheet/scss" lang="scss">
   @import "~assets/css/base.scss";
-  .sub{
-    width: 100px/$ppr;
-    height: 100px/$ppr;
-    border: 1px solid rebeccapurple;
-    font-size: 24px/$ppr;
-  }
 </style>

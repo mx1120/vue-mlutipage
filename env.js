@@ -1,3 +1,26 @@
-/**
- * Created by Administrator on 2017/11/7.
- */
+var DOMAIN_API_APPCONFIG_API_DJ_URLROOT="https://appconfig-beta.m.jxtbkt.cn";
+var DOMAIN_API_BANK_API_DJ_URLROOT="https://bank-beta.m.jxtbkt.cn";
+var DOMAIN_API_COM_API_DJ_URLROOT="https://mapi-beta.m.jxtbkt.cn";
+var DOMAIN_API_HD_API_DJ_URLROOT="https://mapihd-beta.m.jxtbkt.cn";
+var DOMAIN_API_SMS_API_DJ_URLROOT="https://sms-beta.m.jxtbkt.cn";
+var DOMAIN_API_SX2_API_DJ_URLROOT="https://mapisx2-beta.m.jxtbkt.cn";
+var DOMAIN_API_SX_API_DJ_URLROOT="https://mapisx-beta.m.jxtbkt.cn";
+var DOMAIN_API_WEBCHAT_API_DJ_URLROOT="https://mapiwebchat-beta.m.jxtbkt.cn";
+var DOMAIN_API_XCP_API_DJ_URLROOT="https://mapixcp-beta.m.jxtbkt.cn";
+var DOMAIN_API_YW_API_DJ_URLROOT="https://mapiyw-beta.m.jxtbkt.cn";
+var DOMAIN_API_YW_API_DJ_URLROOT_TEXT="None";
+var DOMAIN_API_YY_API_DJ_URLROOT="https://mapiyy-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_COM_STU_URLROOT="https://stu-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_COM_TEA_URLROOT="https://teacom-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_HD_URLROOT="https://hd-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_SX2_STU_URLROOT="https://stusx2-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_SX2_TEA_URLROOT="https://teasx2-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_SX_STU_URLROOT="https://stusx-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_SX_TEA_URLROOT="https://teasx-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_WEBCHAT_URLROOT="https://webchat-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_XCP_STU_URLROOT="https://stuxcp-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_XCP_TEA_URLROOT="https://teaxcp-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_YW_STU_URLROOT="https://stuyw-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_YW_TEA_URLROOT="https://teayw-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_YY_STU_URLROOT="https://stuyy-beta.m.jxtbkt.cn";
+var DOMAIN_VUE_YY_TEA_URLROOT="https://teayy-beta.m.jxtbkt.cn";
