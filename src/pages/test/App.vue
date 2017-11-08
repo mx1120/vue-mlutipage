@@ -1,9 +1,5 @@
 <template>
     <div id="app">
-        这是test
-        <div class="btn" @click="go">
-            TEST
-        </div>
         <router-view/>
     </div>
 </template>
@@ -12,19 +8,16 @@
 	export default {
 		name: 'app',
         methods:{
-			go(){
-				this.$storage.set('pl', 'sb')
-				this.$router.push('/test')
-            }
         }
 	}
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-    @import "assets/css/base";
+<style rel="stylesheet/scss" lang="scss">
+    @import "~assets/css/base.scss";
     .btn{
-        width: 100px;
-        height: 100px;
+        width: 100px/$ppr;
+        height: 100px/$ppr;
         border: 1px solid bisque;
+        @include clearfix;
     }
 </style>

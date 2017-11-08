@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="wrap">
         test
     </div>
 </template>
@@ -30,5 +30,5 @@
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-
+    @import "~assets/css/mixin";
 </style>

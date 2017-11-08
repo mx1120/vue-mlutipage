@@ -37,6 +37,7 @@
   -webkit-line-clamp: $num;
 }
 
+//清除浮动效果
 @mixin clearfix {
   &:after {
     content: "";
@@ -46,6 +47,7 @@
     clear: both;
   }
 }
+
 @mixin arrTop($width:5px , $color:$border){
   display: inline-block;
   height:0px;
@@ -56,6 +58,7 @@
   border-style:dashed dashed solid dashed;
   border-color:transparent transparent $color transparent;
 }
+
 @mixin arrBottom($width:5px , $color:$border){
   display: inline-block;
   height:0px;
@@ -66,6 +69,7 @@
   border-style:solid dashed dashed dashed;
   border-color: $color transparent transparent transparent;
 }
+
 @mixin arrLeft($width:5px , $color:$border){
   display: inline-block;
   height:0px;
@@ -76,6 +80,7 @@
   border-style:dashed solid dashed dashed;
   border-color:transparent $color transparent transparent
 }
+
 @mixin arrRight($width:5px , $color:$border){
   display: inline-block;
   height:0px;

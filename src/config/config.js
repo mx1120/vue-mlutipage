@@ -7,7 +7,7 @@ import Vue from 'vue'
 import storage from 'good-storage'
 import betterScroll from 'vue2-better-scroll'
 import searchToMap from 'assets/js/searchMap.js'
-// require('./flexible.js')
+// var resize = require('./flexible.js')
 
 Vue.use(betterScroll)
 
@@ -16,6 +16,9 @@ FastClick.attach(document.body)
 
 //url传参截取(已query的形式获取参数)
 const search = searchToMap()
+if(location.search && search.token){
+	storage.set('token', search.token)
+}
 
 //使用axios异步请求
 Vue.prototype.$axios = Axios
@@ -36,6 +39,10 @@ Promise.prototype.finally = function (cb) {
 Axios.interceptors.request.use(
 	config => {
 		console.info('this is base config request')
+		let token = storage.get('token') || ''
+		config.headers['token'] = token
+		config.headers['author'] = 'mx'
+		return config
 	},
 	error => {
 		console.info(error)
@@ -46,6 +53,8 @@ Axios.interceptors.request.use(
 Axios.interceptors.response.use(
 	res => {
 		console.info('this is base config response')
+		storage.set('token', res.data.token)
+		return res
 	},
 	error => {
 		console.info(error)

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 // 重置样式表
-@import "base";
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td,a,img,span,thead,tbody,tfoot{margin:0;padding:0;}
 html{font-size:40px;}
 body{font-family:Tahoma, Arial, Helvetica, STHeiti;
@@ -19,5 +18,4 @@ button{cursor:pointer;}
 :focus{outline:0;}
 a{text-decoration:none;color:red;}
 a:hover{text-decoration:none;}
-.clearfix{@include clearfix;}
 img{max-width:100%}
