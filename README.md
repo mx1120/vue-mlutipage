@@ -109,3 +109,4 @@ store => 全局变量的存储的地方
 
 static => 三方插件，layer，bootStrap等
 
+ 
