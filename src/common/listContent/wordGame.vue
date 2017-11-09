@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <li v-for="item in cont">
+            <li v-for="item in list">
                 <div class="word" @click="game(item)">
                     <p>{{item.name}}</p>
                     <span>单词数：</span>
@@ -15,14 +15,14 @@
 <script type="text/ecmascript-6">
     export default{
     	props:{
-		    cont:{
+		    list:{
             	type:Array,
                 default:[]
             }
         },
         methods:{
     		game(data) {
-    			console.info(data)
+    			console.info('wait moment')
             }
         }
     }

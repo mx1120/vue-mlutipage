@@ -1,6 +1,6 @@
 <template>
     <div>
-        <catalog></catalog>
+        <catalog :workType="workType"></catalog>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
     export default{
     	data() {
     		return {
-                type: null,
+                workType: null,
                 catalog:[]
             }
         },

@@ -18,6 +18,8 @@ const mutations = {
 		if(catalog.length == 0){
 			state.catalogResource = false
 		}else {
+			//防止多个数组进行拼接
+			state.catalog = []
 			state.catalogResource = true
 			state.catalog = state.catalog.concat(catalog)
 		}

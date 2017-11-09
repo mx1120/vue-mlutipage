@@ -15,7 +15,7 @@
             <div class="cont">
                 <transition name="slide-fade">
                     <keep-alive>
-                        <component :is="currentView" :cont="catalog"></component>
+                        <component :is="currentView" :list="catalog"></component>
                     </keep-alive>
                 </transition>
             </div>
@@ -27,6 +27,7 @@
     import contGame from 'common/listContent/contGame'
     import wordGame from 'common/listContent/wordGame'
     import noSource from 'common/noResource/noResource'
+    import noBook from 'common/noBook/noBook'
     import * as maps from 'vuex'
     export default{
     	props:{
@@ -37,6 +38,10 @@
             btnCont:{
             	type:String,
                 default:'更换教材'
+            },
+            workType:{
+            	type:Number,
+                default:null
             }
         },
         data() {
@@ -48,7 +53,8 @@
         	'bookTitle': state => state.book.name + '(' + state.book.press_name + state.book.version_name + ')',
             'catalog':state => state.catalog,
 	        'type':state => state.type,
-            'hasResource':state => state.catalogResource
+            'hasResource':state => state.catalogResource,
+            'book':state => state.book
         }),
         methods:{
     		back() {
@@ -56,20 +62,24 @@
             },
 	        changeBook() {
     		    console.info('change book')
-            },
-
+            }
         },
         components:{
             'contGame':contGame,
             'wordGame':wordGame,
-            'noSource':noSource
+            'noSource':noSource,
+            'noBook':noBook
         },
 	    mounted() {
             let _type = this.type
-            if(this.hasResource){
-            	this.currentView = _type == 1 ? 'wordGame' : 'contGame'
+            if(Object.keys(this.book).length == 0){
+                this.currentView = 'noBook'
             }else {
-                this.currentView = 'noSource'
+	            if(this.hasResource){
+		            this.currentView = _type == 1 ? 'wordGame' : 'contGame'
+	            }else {
+		            this.currentView = 'noSource'
+	            }
             }
         }
     }

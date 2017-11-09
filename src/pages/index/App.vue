@@ -12,12 +12,12 @@
         methods:{
             ...maps.mapActions(['getBook', 'getProfile']),
             ...maps.mapMutations({
-            	'steType':'TYPE'
+            	'setType':'TYPE'
             })
         },
         async created() {
   	    	const search = searchToMap()
-            await this.steType(Number(search.type))
+            await this.setType(Number(search.type))
 	        await this.getProfile()
   	    	await this.getBook({'sub_id':91, 'type':1})
         }

@@ -16,7 +16,6 @@ export const getProfile = ({commit}) => {
 				console.info(res.data.message)
 			}
 		})
-
 }
 
 //请求教材ID
@@ -35,7 +34,6 @@ export const getBook = ({commit}, {sub_id, type}) => {
 }
 
 //请求章节列表
-
 export const getCatalog = ({commit, state}) => {
 	Axios.post(DOMAIN_API_YY_API_DJ_URLROOT + '/zy/get_word_catalogs', {'book_id':state.book.id,'type_id':1})
 		.then(res => {
