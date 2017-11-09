@@ -9,13 +9,15 @@
                 <div class="left"></div>
                 <div class="right">
                     <span>{{bookTitle}}</span>
-                    <span @click="changeBook()">{{btnCont}}</span>
+                    <span @click="changeBook">{{btnCont}}</span>
                 </div>
             </div>
             <div class="cont">
-                <keep-alive>
-                    <component :is="currentView" :content="cont"></component>
-                </keep-alive>
+                <transition name="slide-fade">
+                    <keep-alive>
+                        <component :is="currentView" :cont="catalog"></component>
+                    </keep-alive>
+                </transition>
             </div>
         </div>
     </div>
@@ -25,56 +27,50 @@
     import contGame from 'common/listContent/contGame'
     import wordGame from 'common/listContent/wordGame'
     import noSource from 'common/noResource/noResource'
+    import * as maps from 'vuex'
     export default{
     	props:{
             title:{
             	type:String,
                 default:'同步习题'
             },
-            bookTitle:{
-            	type:String,
-                default:'三年级上册（人教版一年级起始）'
-            },
             btnCont:{
             	type:String,
                 default:'更换教材'
-            },
-            type:{
-            	type:String,
-                default:'1'
-            },
-            cont:{
-            	type:Array,
-                default:[]
             }
         },
         data() {
     		return {
-    			currentView:'wordGame'
+    			currentView:''
             }
         },
-        watch:{
-	        currentView(){
-	        	return this.currentView
-            },
-        },
+        computed:maps.mapState({
+        	'bookTitle': state => state.book.name + '(' + state.book.press_name + state.book.version_name + ')',
+            'catalog':state => state.catalog,
+	        'type':state => state.type,
+            'hasResource':state => state.catalogResource
+        }),
         methods:{
     		back() {
     			this.$router.go(-1)
             },
 	        changeBook() {
     		    console.info('change book')
-            }
+            },
+
         },
         components:{
             'contGame':contGame,
             'wordGame':wordGame,
             'noSource':noSource
         },
-        created() {
-    		let _type = this.type
-            console.info(_type)
-//            this.currentView = this.cont.length == 0 ? 'noSource' : (_type == 1 ? this.currentView = 'contGame' : this.currentView = 'wordGame')
+	    mounted() {
+            let _type = this.type
+            if(this.hasResource){
+            	this.currentView = _type == 1 ? 'wordGame' : 'contGame'
+            }else {
+                this.currentView = 'noSource'
+            }
         }
     }
 </script>
@@ -122,15 +118,17 @@
                 margin-right: 36px/$ppr;
             }
             .right{
+                @include clearfix;
                 span{
                     display: block;
+                    width: 440px/$ppr;
                 }
                 span:nth-of-type(1){
-                    @include textCenter;
                     font-size: 30px/$ppr;
                     font-weight: 500;
                     color: $fontColor;
                     line-height: 48px/$ppr;
+                    @include ellipsis(1)
                 }
                 span:nth-of-type(2){
                     @include wh(200px/$ppr, 81px/$ppr);

@@ -3,7 +3,11 @@
  */
 
 const state = {
-	user_info:{}
+	type:null,
+	profile:{},
+	book:{},
+	catalog:[],
+	catalogResource:Boolean
 }
 
 export default state
