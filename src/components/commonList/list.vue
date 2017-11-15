@@ -1,6 +1,6 @@
 <template>
     <div>
-        <catalog :workType="workType"></catalog>
+        <catalog></catalog>
     </div>
 </template>
 
@@ -10,8 +10,6 @@
     export default{
     	data() {
     		return {
-                workType: null,
-                catalog:[]
             }
         },
         computed:maps.mapState({
@@ -23,8 +21,8 @@
         methods:{
             ...maps.mapActions(['getCatalog'])
         },
-        mounted() {
-            this.getCatalog()
+        async mounted() {
+            await this.getCatalog()
         }
     }
 </script>

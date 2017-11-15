@@ -10,6 +10,7 @@ import Axios from 'axios'
 export const getProfile = ({commit}) => {
 	Axios.post(DOMAIN_API_COM_API_DJ_URLROOT + '/account/profile')
 		.then(res => {
+			console.info('getProfile')
 			if(res.data.response == 'ok'){
 				commit(types.PROFILE, res.data.data)
 			}else {
@@ -20,10 +21,13 @@ export const getProfile = ({commit}) => {
 
 //请求教材ID
 export const getBook = ({commit}, {sub_id, type}) => {
-	Axios.post(DOMAIN_API_COM_API_DJ_URLROOT + '/account/book',{"subject_id":sub_id,'type':type})
+	 Axios.post(DOMAIN_API_COM_API_DJ_URLROOT + '/account/book',{"subject_id":sub_id,'type':type})
 		.then(res => {
 			if(res.data.response == 'ok'){
 				commit(types.BOOK, res.data.data)
+				if(res.data.data == null){
+					commit(types.BOOK, {})
+				}
 			}else {
 				commit(types.BOOK, {})
 			}
@@ -37,8 +41,12 @@ export const getBook = ({commit}, {sub_id, type}) => {
 export const getCatalog = ({commit, state}) => {
 	Axios.post(DOMAIN_API_YY_API_DJ_URLROOT + '/zy/get_word_catalogs', {'book_id':state.book.id,'type_id':1})
 		.then(res => {
+			console.info('catalog')
 			if(res.data.response == 'ok'){
 				commit(types.GETCATALOG, res.data.data.chapter)
 			}
+		})
+		.catch(error => {
+			console.info(error)
 		})
 }

@@ -18,12 +18,14 @@ const mutations = {
 		if(catalog.length == 0){
 			state.catalogResource = false
 		}else {
-			//防止多个数组进行拼接
+			//每次的catalog都是独立的，不与上个相关联
 			state.catalog = []
 			state.catalogResource = true
 			state.catalog = state.catalog.concat(catalog)
 		}
-
+	},
+	[types.UPDATE_DIRECTION](state, payload){
+		state.direction = payload.direction
 	}
 }
 

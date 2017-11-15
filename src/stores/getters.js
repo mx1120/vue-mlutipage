@@ -10,3 +10,5 @@ export const book = state => state.book
 export const catalog = state => state.catalog
 
 export const catalogResource = state => state.catalogResource
+
+export const direction = state => state.direction

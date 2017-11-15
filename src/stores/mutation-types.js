@@ -9,3 +9,5 @@ export const PROFILE = 'PROFILE'
 export const BOOK = 'BOOK'
 
 export const GETCATALOG = 'GETCATALOG'
+
+export const UPDATE_DIRECTION = 'UPDATE_DIRECTION'

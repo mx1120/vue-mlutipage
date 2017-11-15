@@ -5,20 +5,23 @@
             <span class="back" @click="back"></span>
         </div>
         <div class="content">
-            <div class="top">
-                <div class="left"></div>
-                <div class="right">
-                    <span>{{bookTitle}}</span>
-                    <span @click="changeBook">{{btnCont}}</span>
-                </div>
+            <div v-if="flag">
+                loading
             </div>
-            <div class="cont">
-                <transition name="slide-fade">
-                    <keep-alive>
-                        <component :is="currentView" :list="catalog"></component>
-                    </keep-alive>
-                </transition>
-            </div>
+           <div v-else>
+               <div class="top">
+                   <div class="left"></div>
+                   <div class="right">
+                       <span>{{bookTitle}}</span>
+                       <span @click="changeBook">{{btnCont}}</span>
+                   </div>
+               </div>
+               <div class="cont">
+                   <keep-alive>
+                       <component :is="currentView" :list="catalog"></component>
+                   </keep-alive>
+               </div>
+           </div>
         </div>
     </div>
 </template>
@@ -38,15 +41,12 @@
             btnCont:{
             	type:String,
                 default:'更换教材'
-            },
-            workType:{
-            	type:Number,
-                default:null
             }
         },
         data() {
     		return {
-    			currentView:''
+    			currentView:'',
+                flag:true
             }
         },
         computed:maps.mapState({
@@ -61,7 +61,19 @@
     			this.$router.go(-1)
             },
 	        changeBook() {
-    		    console.info('change book')
+                this.$router.push('/one')
+            },
+            showWhich() {
+	            let _type = this.type
+	            if(Object.keys(this.book).length == 0){
+		            this.currentView = 'noBook'
+	            }else {
+		            if(this.hasResource){
+			            this.currentView = _type == 1 ? 'wordGame' : 'contGame'
+		            }else {
+			            this.currentView = 'noSource'
+		            }
+	            }
             }
         },
         components:{
@@ -70,17 +82,9 @@
             'noSource':noSource,
             'noBook':noBook
         },
-	    mounted() {
-            let _type = this.type
-            if(Object.keys(this.book).length == 0){
-                this.currentView = 'noBook'
-            }else {
-	            if(this.hasResource){
-		            this.currentView = _type == 1 ? 'wordGame' : 'contGame'
-	            }else {
-		            this.currentView = 'noSource'
-	            }
-            }
+	    async mounted() {
+            await this.showWhich()
+            this.flag = false
         }
     }
 </script>

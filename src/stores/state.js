@@ -7,7 +7,8 @@ const state = {
 	profile:{},
 	book:{},
 	catalog:[],
-	catalogResource:Boolean
+	catalogResource:Boolean,
+	direction:null
 }
 
 export default state
