@@ -23,4 +23,6 @@
 		htmlFont()
 		win.addEventListener("resize", htmlFont, false)
 	})(document, window)
+    var conf = <%= JSON.stringify(htmlWebpackPlugin.options) %>;
+    console.warn(conf)
 </script>

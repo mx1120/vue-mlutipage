@@ -7,10 +7,10 @@ import Vue from 'vue'
 import storage from 'good-storage'
 import betterScroll from 'vue2-better-scroll'
 import searchToMap from 'assets/js/searchMap.js'
+
 // var resize = require('./flexible.js')
 
 Vue.use(betterScroll)
-
 //解决手机点击有有延迟
 FastClick.attach(document.body)
 

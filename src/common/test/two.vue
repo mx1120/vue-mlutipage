@@ -1,6 +1,10 @@
 <template>
-    <div>
+    <div class="top">
+        <div class="header">
+            this is two
+        </div>
         <span @click="back">BACK</span>
+        <span @click="three">Three</span>
     </div>
 </template>
 
@@ -9,15 +13,22 @@
     	methods:{
     		back(){
     			this.$router.go(-1)
+//			    this.$emit('two', 'one')
+            },
+		    three() {
+    			this.$router.push('/three')
+//			    this.$emit('two', 'three')
             }
         }
     }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-    div{
+    @import "~assets/css/mixin";
+    .top{
         min-height: 100vh;
-        width: 100%;
+        width: 100vw;
+        overflow: hidden;
         background: purple;
     }
     span{
@@ -28,5 +39,12 @@
         line-height: 50px;
         background: white;
         color: black;
+    }
+    .header{
+        height: 96px/$ppr;
+        background: black;
+        color: white;
+        line-height: 96px/$ppr;
+        font-size: 34px/$ppr;
     }
 </style>

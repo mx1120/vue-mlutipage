@@ -9,6 +9,9 @@ let routes = []
 routes = routes.concat(list)
 
 export default new Router({
-  mode:"history",
-  routes,
+    mode:"history",
+	scrollBehavior () {
+		return { x: 0, y: 0 }
+	},
+    routes,
 })

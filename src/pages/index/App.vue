@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <transition :name="'vux-pop-' + (direction === 'forward' ? 'in' : 'out')">
-        <keep-alive include="[one, two]">
-            <router-view/>
+        <keep-alive>
+            <router-view />
             <!--<component :is="currentView" @next="next"></component>-->
         </keep-alive>
     </transition>
@@ -26,7 +26,13 @@
             ...maps.mapActions(['getBook', 'getProfile']),
             ...maps.mapMutations({
             	'setType':'TYPE',
-            }),
+            })
+        },
+        watch:{
+  	    	$route(to, from){
+		        const toDepth = to.path.split('/').length
+		        const fromDepth = from.path.split('/').length
+            }
         },
         computed:{
             ...maps.mapState({
@@ -54,31 +60,51 @@
   .vux-pop-in-enter-active,
   .vux-pop-in-leave-active {
     will-change: transform;
-    transition: all 250ms;
+    transition: all 0.3s linear;
     height: 100%;
     top: 0;
+    left: 0;
+    right: 0;
     position: absolute;
     backface-visibility: hidden;
     perspective: 1000;
   }
 
   .vux-pop-out-enter {
-    opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+  }
+
+  .vux-pop-out-leave-active {
+      transform: translate3d(-0%, 0, 0);
+  }
+
+  .vux-pop-in-enter {
+      transform: translate3d(100%, 0, 0);
+  }
+
+  .vux-pop-in-leave-active {
+      transform: translate3d(-0%, 0, 0);
+  }
+
+
+
+
+
+
+
+ /* .vux-pop-out-enter {
     transform: translate3d(-100%, 0, 0);
   }
 
   .vux-pop-out-leave-active {
-    opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
 
   .vux-pop-in-enter {
-    opacity: 0;
     transform: translate3d(100%, 0, 0);
   }
 
   .vux-pop-in-leave-active {
-    opacity: 0;
     transform: translate3d(-100%, 0, 0);
-  }
+  }*/
 </style>
