@@ -4,6 +4,7 @@
 const list = resolve => {
 	require(['components/commonList/list'], resolve)
 }
+
 const one = resolve => {
 	require(['common/test/one'], resolve)
 }
@@ -22,6 +23,10 @@ const test = resolve => {
 
 const template = resolve => {
 	require(['common/test/template'], resolve)
+}
+
+const drag = resolve => {
+	require(['common/test/drag'], resolve)
 }
 
 const router = [
@@ -57,6 +62,11 @@ const router = [
 		name:'template',
 		path:"/sc",
 		component:template
+	},
+	{
+		name:'drag',
+		path:'/drag',
+		component:drag
 	}
 ]
 

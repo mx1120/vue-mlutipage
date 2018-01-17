@@ -79,6 +79,15 @@
 				        if(this.scroll.startY <= this.scroll.maxScrollY - 20){
 					        this.$emit('pullup')
                         }
+			        })
+
+                    //加载loading状态
+			        this.scroll.on('scroll',pos => {
+			        	console.info(pos.y)
+                        console.info(this.scroll.maxScrollY + 30)
+				        if(pos.y - 100 < this.scroll.maxScrollY){
+					        this.$emit('loadingUp', true)
+				        }
 
 			        })
 		        }
@@ -95,7 +104,14 @@
 					        this.$emit('pulldown')
                         }
                     })
+			        //加载loading状态
+			        this.scroll.on('scroll',pos => {
+			        	if(pos.y > 30){
+					        this.$emit('loadingDown', true)
+                        }
+			        })
 		        }
+
 
 		        if (this.beforeScroll) {
 			        this.scroll.on('beforeScrollStart', () => {

@@ -47,6 +47,16 @@ const hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // compilation error display
 app.use(hotMiddleware)
 
+//读取本地数据
+var getData = require('../data.json')
+var router = express.Router()
+
+router.get('/goods', (req, res) => {
+  res.json(getData)
+})
+
+app.use(router)
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   let options = proxyTable[context]
@@ -66,6 +76,7 @@ app.use(devMiddleware)
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 app.use('/env.js',express.static('./env.js'))
+app.use('/errorEruda.js', express.static('./errorEruda.js'))
 
 const uri = 'http://localhost:' + port
 

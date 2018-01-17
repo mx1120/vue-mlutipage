@@ -5,6 +5,12 @@
         </div>
         <span @click="back">BACK</span>
         <span @click="two">TWO</span>
+        <span @click="fade">
+            show
+        </span>
+        <transition name="fade">
+            <div class="show" v-if="transition"></div>
+        </transition>
     </div>
 </template>
 
@@ -12,7 +18,8 @@
     export default{
     	data() {
     		return{
-			    title:'第三章节'
+			    title:'第三章节',
+                transition:true
             }
         },
     	methods:{
@@ -23,6 +30,9 @@
             two() {
 //    			this.$emit('one', 'two')
     			this.$router.push('/two')
+            },
+            fade() {
+    			this.transition = !this.transition
             }
         },
 	    beforeDestory() {
@@ -57,5 +67,18 @@
         line-height: 96px/$ppr;
         font-size: 34px/$ppr;
     }
-
+    .show{
+        width: 200px/$ppr;
+        height: 200px/$ppr;
+        background: #965;
+    }
+    .fade-enter, .fade-leave-to{
+        opacity: 0;
+    }
+    .fade-enter-to, .fade-leave{
+        opacity: 1;
+    }
+    .fade-enter-active, .fade-leave-active{
+        transition: all 0.3s linear;
+    }
 </style>

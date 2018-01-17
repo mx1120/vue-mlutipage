@@ -1,0 +1,13 @@
+{
+    "status":0,
+    "imgList":[
+      {
+          "name":"mx",
+          "sex":"man"
+      },
+      {
+        "name":"pl",
+        "sex":"girl"
+      }
+    ]
+}

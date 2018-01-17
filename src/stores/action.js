@@ -4,8 +4,6 @@
 import * as types from './mutation-types'
 import Axios from 'axios'
 
-
-
 //个人信息
 export const getProfile = ({commit}) => {
 	Axios.post(DOMAIN_API_COM_API_DJ_URLROOT + '/account/profile')

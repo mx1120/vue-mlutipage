@@ -48,7 +48,7 @@
   	    	const search = searchToMap()
             await this.setType(Number(search.type))
 	        await this.getProfile()
-  	    	await this.getBook({'sub_id':91, 'type':1})
+  	    	await this.getBook({'sub_id':91, 'type':''})
         }
     }
 </script>
@@ -60,7 +60,7 @@
   .vux-pop-in-enter-active,
   .vux-pop-in-leave-active {
     will-change: transform;
-    transition: all 0.3s linear;
+    transition: all 0.25s linear;
     height: 100%;
     top: 0;
     left: 0;
@@ -75,7 +75,7 @@
   }
 
   .vux-pop-out-leave-active {
-      transform: translate3d(-0%, 0, 0);
+      transform: translate3d(100%, 0, 0);
   }
 
   .vux-pop-in-enter {
@@ -83,7 +83,7 @@
   }
 
   .vux-pop-in-leave-active {
-      transform: translate3d(-0%, 0, 0);
+      transform: translate3d(-100%, 0, 0);
   }
 
 
@@ -91,8 +91,8 @@
 
 
 
-
- /* .vux-pop-out-enter {
+/*
+  .vux-pop-out-enter {
     transform: translate3d(-100%, 0, 0);
   }
 

@@ -1,16 +1,22 @@
 <template>
-    <scroll class="wrapper"
-            :data="data"
-            :pulldown="pulldown"
-            :pullup="pullup"
-            @pulldown="ResetData"
-            @pullup="loadData"
-    >
-        <div class="content">
-            <p v-for="item in data">{{item}}</p>
-        </div>
-        <load class="loading-container"></load>
-    </scroll>
+    <div>
+        <scroll class="wrapper"
+                :data="data"
+                :pulldown="pulldown"
+                :pullup="pullup"
+                @pulldown="ResetData"
+                @pullup="loadData"
+                @loadingDown="loadingDown"
+                @loadingUp="loadingUp"
+        >
+            <div class="content">
+                <load class="loading-container" v-show="downLoading"></load>
+                <p v-for="item in data">{{item}}</p>
+                <load class="loading-container" v-show="upLoading"></load>
+            </div>
+        </scroll>
+    </div>
+
 </template>
 
 <script type="text/ecmascript-6">
@@ -19,9 +25,11 @@
     export default{
     	data () {
     		return {
-    			data:[1,2,3,4,5,6,7,8,8,1,1,1,1,1],
+    			data:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],
                 pulldown:true,
-			    pullup:true
+			    pullup:true,
+			    downLoading:false,
+                upLoading:false
             }
         },
         created() {
@@ -33,9 +41,22 @@
             },
     		loadData() {
                 console.info('pullup')
-			    let mx = ['孟祥','王世成']
-			    this.data = this.data.concat(mx)
             },
+	        loadingDown(show) {
+                this.downLoading = show
+                setTimeout(() => {
+                	this.downLoading = false
+                }, 3500)
+            },
+	        loadingUp(show) {
+	        	this.upLoading = show
+//                setTimeout( () => {
+//                	this.upLoading = false
+//                }, 3500)
+            },
+	        drag(ev){
+	        	console.info(ev)
+            }
         },
         components:{
     		'scroll':BScroll,
@@ -50,16 +71,22 @@
         max-height: 400px/$ppr;
         overflow: hidden;
         position: relative;
+        border: 1px solid red;
+        .content{
+            @include clearfix;
+        }
         p{
             text-align: center;
         }
         .loading-container{
-            position: absolute;
             width: 100px/$ppr;
             height: 100px/$ppr;
-            left: 30%;
-            bottom: 10px/$ppr;
-            transform:translateX(-62%);
+            margin-left:43%;
         }
+    }
+    .drag{
+        width: 100px/$ppr;
+        height: 100px/$ppr;
+        background: rgba(0,0,0, .7);
     }
 </style>

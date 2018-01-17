@@ -48,6 +48,7 @@
         left: 45%;
         width: 40px/$ppr;
         height: 40px/$ppr;
+        transform: translate(-50%, -50%);
     }
     .loading_prompt{
         position: absolute;

@@ -5,8 +5,18 @@ import App from './App'
 import router from './router'
 import config from 'config/config.js'
 import store from '@/stores'
+import errorEruda from 'error_eruda'
 
 Vue.config.productionTip = false
+
+errorEruda.config({
+	jsUrl: '//cdn.jsdelivr.net/eruda/1.2.2/eruda.min.js',//eruda地址
+	repUrl: "http://127.0.0.1:8080/",//错误上报地址
+	repMsg: 'test',//错误上报msg前缀，一般用于标识业务类型
+	entry: "#app"
+})
+
+
 const history = window.sessionStorage
 history.clear()
 let historyCount = history.getItem('count') * 1 || 0
@@ -30,6 +40,12 @@ router.beforeEach((to, from, next) => {
 	next()
 })
 
+
+Vue.directive('focus', {
+	inserted(el) {
+		el.focus()
+	}
+})
 
 
 /* eslint-disable no-new */

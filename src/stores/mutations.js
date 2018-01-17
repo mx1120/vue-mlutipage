@@ -25,6 +25,7 @@ const mutations = {
 		}
 	},
 	[types.UPDATE_DIRECTION](state, payload){
+		console.info(payload.direction)
 		state.direction = payload.direction
 	}
 }

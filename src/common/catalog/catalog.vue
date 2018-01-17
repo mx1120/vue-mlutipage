@@ -32,6 +32,7 @@
     import noSource from 'common/noResource/noResource'
     import noBook from 'common/noBook/noBook'
     import * as maps from 'vuex'
+    import axios from 'axios'
     export default{
     	props:{
             title:{
@@ -85,6 +86,10 @@
 	    async mounted() {
             await this.showWhich()
             this.flag = false
+		    axios.get('/goods')
+                .then(res => {
+                	console.info(res)
+                })
         }
     }
 </script>
